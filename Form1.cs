@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -128,12 +129,14 @@ namespace NeedSomeSleep
 
         private void addMessageToLog(string message)
         {
+            
             Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\answers");
             string currentLog = Directory.GetCurrentDirectory() + "\\answers\\" + $"{DateTime.Now.ToString("yyyy-MM-dd")}.txt";
-            File.AppendAllText(currentLog, $"[{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}] {message}{Environment.NewLine}");
-            
+            File.AppendAllText (currentLog, $"[{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}] {message}{Environment.NewLine}");
 
         }
+
+        
 
     }
 }
